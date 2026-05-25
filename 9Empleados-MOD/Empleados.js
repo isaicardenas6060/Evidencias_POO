@@ -1,15 +1,9 @@
 // Ejercicio 9 EMPLEADOS
-class ErrorEmpleado extends Error {
-  constructor(mensaje, codigo = 400) {
-    super(mensaje);
-    this.name = "ErrorEmpleado";
-    this.codigo = codigo;
-  }
-}
-class Empleados {
+import ErrorEmpleado from "./ErrorEmpleado.js";
+export default class Empleados {
   #Rfc;
   #SueldoBase;
-  #PagoExt;
+  #PagoExt; 
   #HorasExt;
   constructor(Rfc, SueldoBase, PagoExt, HorasExt) {
     if (!Rfc || Rfc.length < 10) throw new ErrorEmpleado("El RFC debe tener al menos 10 caracteres");
@@ -71,32 +65,4 @@ class Empleados {
     Sueldo Bruto: $${this.calcularSueldoBruto()}
     Sueldo Neto: $${this.calcularSueldoNeto()}
     `;
-  }
-}
-class DevolucionExt extends Empleados {
-  constructor(Rfc, SueldoBase, PagoExt, HorasExt) {
-    super(Rfc, SueldoBase, PagoExt, HorasExt);
-  }
-  calcular() {
-    return this.calcularComplemento();
-  }
-}
-class DevolucionSueldo extends Empleados {
-  constructor(Rfc, SueldoBase, PagoExt, HorasExt) {
-    super(Rfc, SueldoBase, PagoExt, HorasExt);
-  }
-  SueldoBruto() {
-    return this.calcularSueldoBruto();
-  }
-  MostrarALL() {
-    return super.MostrarALL();
-  }
-}
-
-try {
-  const emp1 = new DevolucionSueldo("RFC123456789", 10000, 200, 5);
-  console.log(emp1.MostrarInfo());
-  console.log(emp1.MostrarALL());
-} catch (error) {
-  console.error(error.name, error.message);
-}
+  }}
