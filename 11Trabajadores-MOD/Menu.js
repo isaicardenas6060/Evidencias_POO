@@ -1,6 +1,6 @@
 import Trabajador from "./trabajadores.js";
-//falta prompt-sync
-
+import promptSync from "prompt-sync";
+const prompt=promptSync()
 let TRABAJO=[]
 let opcion;
 
@@ -32,7 +32,7 @@ do{
             }
             break;
             case 2:
-                if(trabajadores.length===0){
+                if(TRABAJO.length===0){
                      console.log("\nAun no hay registro de trabajadores.")
                 }else{
                     console.log("\n=========Lista de trabajadores.=========")

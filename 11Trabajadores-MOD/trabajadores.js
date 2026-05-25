@@ -1,3 +1,4 @@
+import ErrorEmpleado from "../9Empleados-MOD/ErrorEmpleado.js";
 export default class Trabajador {
     #nombre;
     #horasTrabajadas;
@@ -45,6 +46,6 @@ calcularDescuento(){
     return this.calcularSueldoBruto()*0.10
 }
 calcularSueldoFinal(){
-    return this.caltrcularSueldoBruto()-this.calcularDescuento()
+    return this.calcularSueldoBruto()-this.calcularDescuento()
 }
 }
